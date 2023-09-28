@@ -4,10 +4,12 @@ import { configDotenv } from 'dotenv';
 configDotenv({ path: './.env' });
 import mongoose from 'mongoose';
 import cors from 'cors';
+import routes from './routes.js'
 
 
 app.use(express.json())
-app.use(cors())
+app.use(cors());
+app.use(routes);
 
 const PORT = process.env.PORT;
 const PASSWORD = process.env.PASSWORD
@@ -24,40 +26,9 @@ mongoose.connect(PASSWORD, {
     console.log('Banco de dados conectado')
 }).catch((error) => {
     console.log(error)
-})
-
-const produtoSchema = new mongoose.Schema({
-    nome: {
-        type: String,
-        required: true,
-    },
-    descricao: {
-        type: String,
-        required: true,
-    },
-    preco: {
-        type: Number,
-        required:true,
-    },
-    categoria: {
-        type: String,
-        required: true,
-    },
-    estoque: {
-        type: Number,
-        required: true,
-    },
 });
 
-const Produto = mongoose.model('Produto', produtoSchema,'Produtos');
 
 
-app.get('/', async (req, res) => {
-    try {
-        const produtos = await Produto.find();
-        return res.json(produtos);
-    } catch (error) {
-        console.error('Erro ao buscar produtos:', error);
-        return res.status(500).json({ error: 'Erro ao buscar produtos' });
-    }
-});
+
+

@@ -1,15 +1,14 @@
-import express from 'express';
-const app = express()
-import { configDotenv } from 'dotenv';
-configDotenv({ path: './.env' });
-import mongoose from 'mongoose';
-import cors from 'cors';
-import routes from './routes.js'
+const express = require('express');
+const app = express();
+require('dotenv').config({ path: './.env' });
+const mongoose = require('mongoose');
+const cors = require('cors');
+const Routes = require('../Router/routes');
 
 
 app.use(express.json())
 app.use(cors());
-app.use(routes);
+app.use('/', Routes);
 
 const PORT = process.env.PORT;
 const PASSWORD = process.env.PASSWORD

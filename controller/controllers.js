@@ -1,8 +1,8 @@
-import Produto from '../model/produtos';
+const Produto = require('../model/produtos.js') ;
 
 
 const controllers = {
-    
+
     findProduto: async (req, res) => {
         try {
             const produtos = await Produto.find();
@@ -15,4 +15,4 @@ const controllers = {
     }
 };
 
-exports.module = controllers;
+module.exports = controllers;

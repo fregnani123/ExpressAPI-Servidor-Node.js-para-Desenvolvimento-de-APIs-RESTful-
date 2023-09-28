@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const produtoSchema = new mongoose.Schema({
     nome: {
         type: String,
@@ -21,6 +23,5 @@ const produtoSchema = new mongoose.Schema({
     },
 });
 
-const Produto = mongoose.model('Produto', produtoSchema, 'Produtos');
+module.exports = mongoose.model('Produto', produtoSchema, 'Produtos');
 
-export default Produto

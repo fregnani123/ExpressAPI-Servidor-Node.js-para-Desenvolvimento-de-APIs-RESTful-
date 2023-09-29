@@ -3,7 +3,7 @@ const Router = express.Router()
 const controllers = require('../controller/controllers')
 
 Router.get('/findProduto', controllers.findProduto);
-// Router.get('/find/:id', controllers.findOne);
+Router.get('/findOne/:nome', controllers.findOne);
 // Router.delete('/delete/:name', controllers.deleteUsers);
 Router.post('/newProduto', controllers.createProduto)
 

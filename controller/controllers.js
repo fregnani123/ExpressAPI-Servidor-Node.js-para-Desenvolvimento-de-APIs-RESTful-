@@ -1,6 +1,5 @@
 const ProdutoModel = require('../model/produtos.js') ;
 
-
 const controllers = {
 
     findProduto: async (req, res) => {
@@ -15,12 +14,11 @@ const controllers = {
     },
 
     findOne: async(req, res) =>{
-        const nome = req.params.nome
+        const id = req.params.id
         try {
-            const findProduto = await ProdutoModel.findOne({nome: nome});
+            const findProduto = await ProdutoModel.findOne({_id: id});
             res.json(findProduto);
         } catch (error) {
-            // Lide com erros aqui
             console.error('Erro ao buscar produtos:', error);
             return res.status(500).json({ error: 'Erro ao buscar produtos' }); 
     }
@@ -38,7 +36,17 @@ const controllers = {
             return res.status(500).json({ error: 'Erro ao buscar produtos' });
         }
     },
-
+  
+    deleteProduto: async (req, res) => {
+        const nome = req.params.nome
+        try {
+            const produto = ProdutoModel.deleteOne({nome:nome})
+        } catch (error) {
+            
+            console.error('Erro ao buscar produtos:', error);
+            return res.status(500).json({ error: 'Erro ao buscar produtos' });
+        }
+    },
 
 };
 

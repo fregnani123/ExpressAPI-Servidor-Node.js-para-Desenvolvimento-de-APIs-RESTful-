@@ -38,11 +38,12 @@ const controllers = {
     },
   
     deleteProduto: async (req, res) => {
-        const nome = req.params.nome
+        const nome = req.params.nome;
         try {
-            const produto = ProdutoModel.deleteOne({nome:nome})
+            const produto = await ProdutoModel.deleteOne({ nome: nome });
+            res.json(produto);
+
         } catch (error) {
-            
             console.error('Erro ao buscar produtos:', error);
             return res.status(500).json({ error: 'Erro ao buscar produtos' });
         }

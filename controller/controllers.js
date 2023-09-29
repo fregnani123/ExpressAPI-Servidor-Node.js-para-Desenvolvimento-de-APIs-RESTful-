@@ -24,9 +24,7 @@ const controllers = {
             console.error('Erro ao buscar produtos:', error);
             return res.status(500).json({ error: 'Erro ao buscar produtos' }); 
     }
-
     },
-
     createProduto: async (req, res) => {
           const newProduto = req.body;
         try {

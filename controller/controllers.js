@@ -15,9 +15,10 @@ const controllers = {
     },
 
     findOne: async(req, res) =>{
-       
+        const findParams = params.nome
         try {
-        
+            const findProduto = await ProdutoModel.findOne();
+            res.json(findParams)
         } catch (error) {
             // Lide com erros aqui
             console.error('Erro ao buscar produtos:', error);

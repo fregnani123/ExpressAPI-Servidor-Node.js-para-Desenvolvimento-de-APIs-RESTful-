@@ -32,7 +32,7 @@ const controllers = {
             res.json(produto);
 
         } catch(error) {
-            // Lide com erros aqui
+           
             console.error('Erro ao buscar produtos:', error);
             return res.status(500).json({ error: 'Erro ao buscar produtos' });
         }

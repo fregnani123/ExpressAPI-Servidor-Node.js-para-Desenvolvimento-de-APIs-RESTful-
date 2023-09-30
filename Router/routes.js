@@ -5,6 +5,8 @@ const controllers = require('../controller/controllers')
 Router.get('/findProduto', controllers.findProduto);
 Router.get('/findOne/:id', controllers.findOne);
 Router.delete('/deleteProduto/:nome', controllers.deleteProduto);
-Router.post('/newProduto', controllers.createProduto)
+Router.post('/newProduto', controllers.createProduto);
+
+Router.patch('/updateProduto/:id', controllers.updateProduto)
 
 module.exports = Router;

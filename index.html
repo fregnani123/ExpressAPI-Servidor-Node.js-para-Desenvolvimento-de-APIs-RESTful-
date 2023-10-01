@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="meuFormulario" style="display: block;">
+  <label for="campoNome">Nome</label>
+  <input type="text" id="campoNome" name="nome" placeholder="">
+
+  <label for="campoDescricao">Descrição</label>
+  <input type="text" id="campoDescricao" name="descricao" >
+
+  <label for="campoPreco">Preço</label>
+  <input type="number" id="campoPreco" name="preco" placeholder="0.00">
+
+  <label for="campoCategoria">Categoria</label>
+  <select id="campoCategoria" name="categoria">
+    <option value="eletronica">Eletrônica</option>
+    <option value="vestuario">Vestuário</option>
+    <option value="alimentos">Alimentos</option>
+    <!-- Adicione mais opções de categoria conforme necessário -->
+  </select>
+
+  <label for="campoEstoque">Estoque</label>
+  <input type="number" id="campoEstoque" name="estoque" value="0">
+
+  <input type="submit" value="Enviar">
+</form>
+<script src="index.js"></script>
+</body>
+</html>

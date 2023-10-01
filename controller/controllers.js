@@ -51,6 +51,7 @@ const controllers = {
     },
 
     updateProduto: async (req, res) => {
+
         const id = req.params.id;
         const { nome, descricao, preco, categoria, estoque } = req.body
 

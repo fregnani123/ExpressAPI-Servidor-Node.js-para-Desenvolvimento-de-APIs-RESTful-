@@ -13,15 +13,16 @@ const controllers = {
         }
     },
 
-    findOne: async(req, res) =>{
-        const id = req.params.id
+    findOne: async (req, res) => {
+        const partialNomeProduto = req.params.nome; // Nome parcial a ser pesquisado
         try {
-            const findProduto = await ProdutoModel.findOne({_id: id});
+            const regex = new RegExp(partialNomeProduto, 'i'); // 'i' para fazer a busca ser case-insensitive
+            const findProduto = await ProdutoModel.findOne({ nome: regex });
             res.json(findProduto);
         } catch (error) {
             console.error('Erro ao buscar produtos:', error);
-            return res.status(500).json({ error: 'Erro ao buscar produtos' }); 
-    }
+            return res.status(500).json({ error: 'Erro ao buscar produtos' });
+        }
     },
 
     createProduto: async (req, res) => {
@@ -39,9 +40,9 @@ const controllers = {
     },
   
     deleteProduto: async (req, res) => {
-        const nome = req.params.nome;
+        const id = req.params.id;
         try {
-            const produto = await ProdutoModel.deleteOne({ nome: nome });
+            const produto = await ProdutoModel.deleteOne({_id: id });
             res.json(produto);
 
         } catch (error) {

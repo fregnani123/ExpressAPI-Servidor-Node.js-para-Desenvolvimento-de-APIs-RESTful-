@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tela de Vendas</title>
+</head>
+
+<body>
+    <h1>Tela de Vendas</h1>
+
+    <input type="text" id="codigoDeBarrasInput" placeholder="Código de Barras">
+    <button id="adicionarAoCarrinho">Adicionar ao Carrinho</button>
+
+    <h2>Carrinho de Compras</h2>
+    <ul id="carrinho">
+    </ul>
+    <p>Total: $<span id="totalCarrinho">0</span></p>
+
+    <script>
+        // Array de produtos
+        const produtos = [
+            {
+                codigoDeBarras: '1234567890',
+                nome: 'Produto 1',
+                preco: 10.99,
+            },
+            {
+                codigoDeBarras: '2345678901',
+                nome: 'Produto 2',
+                preco: 19.99,
+            },
+            {
+                codigoDeBarras: '3456789012',
+                nome: 'Produto 3',
+                preco: 5.99,
+            }
+        ];
+
+        // Função para encontrar um produto por código de barras
+        function encontrarProdutoPorCodigo(codigo) {
+            return produtos.find(produto => produto.codigoDeBarras === codigo);
+        }
+
+        const carrinho = [];
+        const codigoDeBarrasInput = document.getElementById('codigoDeBarrasInput');
+        const adicionarAoCarrinhoButton = document.getElementById('adicionarAoCarrinho');
+        const carrinhoList = document.getElementById('carrinho');
+        const totalCarrinhoDisplay = document.getElementById('totalCarrinho');
+
+        adicionarAoCarrinhoButton.addEventListener('click', () => {
+            const codigo = codigoDeBarrasInput.value;
+            const produtoSelecionado = encontrarProdutoPorCodigo(codigo);
+
+            if (produtoSelecionado) {
+                carrinho.push(produtoSelecionado);
+
+                const novoItem = document.createElement('li');
+                novoItem.textContent = `${produtoSelecionado.nome} - $${produtoSelecionado.preco}`;
+                carrinhoList.appendChild(novoItem);
+
+                const total = carrinho.reduce((acc, produto) => acc + produto.preco, 0);
+                totalCarrinhoDisplay.textContent = total.toFixed(2);
+            } else {
+                alert('Produto não encontrado');
+            }
+
+            // Limpa o campo de entrada
+            codigoDeBarrasInput.value = '';
+        });
+    </script>
+</body>
+
+</html>

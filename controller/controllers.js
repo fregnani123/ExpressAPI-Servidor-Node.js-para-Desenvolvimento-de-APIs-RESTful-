@@ -1,10 +1,10 @@
-const ProdutoModel = require('../model/produtos.js') ;
+const { Produto, DetalhesVenda } = require('../model/produtos.js');
 
 const controllers = {
 
     findProduto: async (req, res) => {
         try {
-            const produtos = await ProdutoModel.find();
+            const produtos = await Produto.find();
             return res.json(produtos);
         } catch (error) {
             // Lide com erros aqui
@@ -17,7 +17,7 @@ const controllers = {
         const partialNomeProduto = req.params.nome; // Nome parcial a ser pesquisado
         try {
             const regex = new RegExp(partialNomeProduto, 'i'); // 'i' para fazer a busca ser case-insensitive
-            const findProduto = await ProdutoModel.findOne({ nome: regex });
+            const findProduto = await Produto.findOne({ nome: regex });
             res.json(findProduto);
         } catch (error) {
             console.error('Erro ao buscar produtos:', error);
@@ -29,7 +29,7 @@ const controllers = {
     createDetalheVenda : async (req, res) => {
         const newVenda = req.body; 
         try {
-            const detalhesVenda = await detalhesVenda.create(newVenda);
+            const detalhesVenda = await DetalhesVenda.create(newVenda);
             res.json(detalhesVenda)
         } catch (error) {
 
@@ -42,7 +42,7 @@ const controllers = {
     createProduto: async (req, res) => {
           const newProduto = req.body;
         try {
-            const produto = await ProdutoModel.create(newProduto);
+            const produto = await Produto.create(newProduto);
             
             res.json(produto);
 
@@ -56,7 +56,7 @@ const controllers = {
     deleteProduto: async (req, res) => {
         const id = req.params.id;
         try {
-            const produto = await ProdutoModel.deleteOne({_id: id });
+            const produto = await Produto.deleteOne({_id: id });
             res.json(produto);
 
         } catch (error) {
@@ -79,7 +79,7 @@ const controllers = {
         }
         
         try {
-            const produto = await ProdutoModel.updateOne({ _id: id }, updateProduto);
+            const produto = await Produto.updateOne({ _id: id }, updateProduto);
             res.json(updateProduto);
 
         } catch (error) {

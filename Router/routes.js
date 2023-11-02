@@ -10,6 +10,8 @@ Router.delete('/deleteproduto/:id', controllers.deleteProduto);
 
 Router.post('/newProduto', controllers.createProduto);
 
-Router.patch('/updateProduto/:id', controllers.updateProduto)
+Router.patch('/updateProduto/:id', controllers.updateProduto);
+
+Router.post('/detalhedevenda', controllers.createDetalheVenda);
 
 module.exports = Router;

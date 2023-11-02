@@ -27,19 +27,18 @@ const produtoSchema = new mongoose.Schema({
     },
 });
 
-const detalhesVenda = new mongoose.Schema({
-
+const detalhesVendaSchema = new mongoose.Schema({
     carrinho: {
-        type: String,
+        type: Array,
         required: true,
     },
     cliente: {
         type: String,
-        requerid: true,
+        required: true,
     },
     dateVenda: {
         type: Date,
-        requerid: true,
+        required: true,
     },
     dinheiroRecebido: {
         type: Number,
@@ -47,18 +46,14 @@ const detalhesVenda = new mongoose.Schema({
     },
     formaPagamento: {
         type: String,
-        requerid: true,
+        required: true,
     },
     total: {
         type: Number,
         required: true,
     }
-}
-)
+});
 
-module.exports = mongoose.model('Detalhes de Venda', detalhesVenda, 'Detalhes de Venda')
-module.exports = mongoose.model('Produto', produtoSchema, 'Produtos');
-
-
-
-
+// Exporte cada modelo separadamente
+module.exports.Produto = mongoose.model('Produto', produtoSchema, 'Produtos');
+module.exports.DetalhesVenda = mongoose.model('DetalhesVenda', detalhesVendaSchema, 'Detalhes de Venda');

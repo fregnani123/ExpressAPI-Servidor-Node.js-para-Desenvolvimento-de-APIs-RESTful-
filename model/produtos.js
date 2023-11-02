@@ -21,7 +21,44 @@ const produtoSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    codigoDeBarras: {
+        type: Number,
+        required: true,
+    },
 });
 
+const detalhesVenda = new mongoose.Schema({
+
+    carrinho: {
+        type: String,
+        required: true,
+    },
+    cliente: {
+        type: String,
+        requerid: true,
+    },
+    dateVenda: {
+        type: Date,
+        requerid: true,
+    },
+    dinheiroRecebido: {
+        type: Number,
+        required: true,
+    },
+    formaPagamento: {
+        type: String,
+        requerid: true,
+    },
+    total: {
+        type: Number,
+        required: true,
+    }
+}
+)
+
+module.exports = mongoose.model('Detalhes de Venda', detalhesVenda, 'Detalhes de Venda')
 module.exports = mongoose.model('Produto', produtoSchema, 'Produtos');
+
+
+
 

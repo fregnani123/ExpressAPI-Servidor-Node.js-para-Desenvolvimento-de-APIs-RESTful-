@@ -14,9 +14,9 @@ const controllers = {
     },
 
     findOne: async (req, res) => {
-        const partialNomeProduto = req.params.nome; // Nome parcial a ser pesquisado
+        const partialNomeProduto = req.params.nome; 
         try {
-            const regex = new RegExp(partialNomeProduto, 'i'); // 'i' para fazer a busca ser case-insensitive
+            const regex = new RegExp(partialNomeProduto, 'i'); // 
             const findProduto = await Produto.findOne({ nome: regex });
             res.json(findProduto);
         } catch (error) {
@@ -36,7 +36,18 @@ const controllers = {
             console.error('Erro ao criar detalhes vendas:', error);
             return res.status(500).json({ error: 'Erro ao buscar  a venda' });
         }
-   },
+    },
+    
+    detalhes: async (req, res) => {
+        try {
+            const detalhes = await DetalhesVenda.find()
+            return res.json(detalhes);
+        } catch (error) {
+
+            console.error('Erro ao criar detalhes vendas:', error);
+            return res.status(500).json({ error: 'Erro ao buscar  a venda' });
+        }
+    },
 
 
     createProduto: async (req, res) => {
@@ -67,20 +78,20 @@ const controllers = {
 
     updateProduto: async (req, res) => {
 
-        const id = req.params.id;
-        const { nome, descricao, preco, categoria, estoque } = req.body
+        const codigoDeBarras = req.params.codigoDeBarras;
+        const { nome, descricao, preco, categoria ,estoque, } = req.body
 
-        const updateProduto = { 
-            nome,
-            descricao,
-            preco,
-            categoria,
-            estoque,
+        const updateProduto = {
+            nome: nome,
+            descricao: descricao,
+            preco: preco,
+            categoria: categoria,
+            estoque:estoque,
         }
         
         try {
-            const produto = await Produto.updateOne({ _id: id }, updateProduto);
-            res.json(updateProduto);
+            const produto = await Produto.updateOne({ codigoDeBarras: codigoDeBarras }, updateProduto);
+            res.json(produto);
 
         } catch (error) {
             console.error('Erro ao buscar produtos:', error);

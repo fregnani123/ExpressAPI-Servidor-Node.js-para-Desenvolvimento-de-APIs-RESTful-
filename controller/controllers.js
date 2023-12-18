@@ -65,9 +65,9 @@ const controllers = {
     },
   
     deleteProduto: async (req, res) => {
-        const id = req.params.id;
+        const codigoDeBarras = req.params.codigoDeBarras;
         try {
-            const produto = await Produto.deleteOne({_id: id });
+            const produto = await Produto.deleteOne({codigoDeBarras: codigoDeBarras });
             res.json(produto);
 
         } catch (error) {

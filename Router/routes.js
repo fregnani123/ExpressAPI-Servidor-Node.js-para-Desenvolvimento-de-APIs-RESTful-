@@ -6,7 +6,7 @@ Router.get('/findProduto', controllers.findProduto);
 
 Router.get('/findone/:nome', controllers.findOne);
 
-Router.delete('/deleteproduto/:id', controllers.deleteProduto);
+Router.delete('/deleteproduto/:codigoDeBarras', controllers.deleteProduto);
 
 Router.post('/newProduto', controllers.createProduto);
 

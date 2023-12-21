@@ -34,7 +34,7 @@ const controllers = {
         } catch (error) {
 
             console.error('Erro ao criar detalhes vendas:', error);
-            return res.status(500).json({ error: 'Erro ao buscar  a venda' });
+            return res.status(500).json({ error: 'Erro ao criar detalhes de venda' });
         }
     },
     
@@ -99,6 +99,18 @@ const controllers = {
         }
     },
 
+    createNewCliente: async (req, res) => {
+        const createCliente = req.body;
+        try { 
+            const novoCliente = await Produto.create(createCliente);
+            res.json(novoCliente)
+        } catch {
+            console.error('Erro ao criar novo cliente:', error);
+            return res.status(500).json({ error: 'Erro ao criar novo cliente' });
+        }
+    }
+
 };
+
 
 module.exports = controllers;

@@ -54,6 +54,58 @@ const detalhesVendaSchema = new mongoose.Schema({
     }
 });
 
+const cadastrarCliente = new mongoose.Schema({
+    nome: {
+        type: String,
+        required: true,
+    },
+    CPF: {
+        type: Number,
+        require: true,
+    },
+
+    RG: {
+        type: Number,
+        require: true,
+    },
+    dataNascimento: {
+        type: Date,
+        require: true,
+    },
+    endereco: {
+        type: String,
+        require: true,
+    },
+    numero: {
+        type: Number,
+        require: true,
+    },
+    Bairro: {
+        type: String,
+        require: true,
+    },
+    cidade: {
+        type: String,
+        require: true,
+    },
+    fone: {
+        type: String,
+        require: true,
+    },
+    email: {
+        type: String,
+        require: true,
+    },
+    ocupacao: {
+        type: String,
+        require: true,
+    },
+
+}
+   
+);
+
 // Exporte cada modelo separadamente
 module.exports.Produto = mongoose.model('Produto', produtoSchema, 'Produtos');
 module.exports.DetalhesVenda = mongoose.model('DetalhesVenda', detalhesVendaSchema, 'Detalhes de Venda');
+module.exports.cadastrarCliente = mongoose.model('CadastroCliente', cadastrarCliente, 'Cadastro de Cliente');

@@ -1,4 +1,4 @@
-const { Produto, DetalhesVenda } = require('../model/produtos.js');
+const { Produto, DetalhesVenda,  cadastrarCliente} = require('../model/produtos.js');
 
 const controllers = {
 
@@ -102,12 +102,23 @@ const controllers = {
     createNewCliente: async (req, res) => {
         const createCliente = req.body;
         try {
-            const novoCliente = await cliente.create(createCliente);
+            const novoCliente = await  cadastrarCliente.create(createCliente);
             res.json(novoCliente);
         } catch (error) { 
             console.error('Erro ao criar novo cliente:', error);
             return res.status(500).json({ error: 'Erro ao criar novo cliente' });
         }
+    },
+
+    buscarCliente: async (req, res) => {
+        try {
+            const cliente = await cadastrarCliente.find()
+           return res.json(cliente) } catch (error) {
+
+            console.error('Erro ao criar detalhes vendas:', error);
+            return res.status(500).json({ error: 'Erro ao buscar  a venda' });
+        }
+        
     }
 
 

@@ -16,6 +16,8 @@ Router.post('/detalhesdevendaPost', controllers.createDetalheVenda);
 
 Router.post('/criarNovoCliente', controllers.createNewCliente);
 
-Router.get('/detalhes', controllers.detalhes)
+Router.get('/clientes', controllers.buscarCliente);
+
+Router.get('/detalhes', controllers.detalhes);
 
 module.exports = Router;

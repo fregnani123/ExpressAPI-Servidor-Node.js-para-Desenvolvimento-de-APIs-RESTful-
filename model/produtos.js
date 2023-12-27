@@ -61,12 +61,12 @@ const cadastrarClienteSchema = new mongoose.Schema({
     },
     cpfFake: {
         type: String,
-        required: true,
+        // required: true,
     },
 
     rgFake: {
         type: String,
-        required: true,
+        // required: true,
     },
     nascimento: {
         type: Date,
@@ -77,7 +77,7 @@ const cadastrarClienteSchema = new mongoose.Schema({
         required: true,
     },
     numero: {
-        type: Number,
+        type: String,
         required: true,
     },
     bairro: {
@@ -89,7 +89,7 @@ const cadastrarClienteSchema = new mongoose.Schema({
         required: true,
     },
     
-    UF: {
+    uf: {
         type: String,
         required: true,
     },

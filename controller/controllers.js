@@ -16,7 +16,7 @@ const controllers = {
     findOne: async (req, res) => {
         const partialNomeProduto = req.params.nome; 
         try {
-            const regex = new RegExp(partialNomeProduto, 'i'); // 
+            const regex = new RegExp(partialNomeProduto, 'i'); 
             const findProduto = await Produto.findOne({ nome: regex });
             res.json(findProduto);
         } catch (error) {
@@ -101,14 +101,15 @@ const controllers = {
 
     createNewCliente: async (req, res) => {
         const createCliente = req.body;
-        try { 
-            const novoCliente = await Produto.create(createCliente);
-            res.json(novoCliente)
-        } catch {
+        try {
+            const novoCliente = await cliente.create(createCliente);
+            res.json(novoCliente);
+        } catch (error) { 
             console.error('Erro ao criar novo cliente:', error);
             return res.status(500).json({ error: 'Erro ao criar novo cliente' });
         }
     }
+
 
 };
 

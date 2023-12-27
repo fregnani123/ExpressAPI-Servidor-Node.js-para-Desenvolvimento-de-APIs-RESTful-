@@ -54,51 +54,57 @@ const detalhesVendaSchema = new mongoose.Schema({
     }
 });
 
-const cadastrarCliente = new mongoose.Schema({
-    nome: {
+const cadastrarClienteSchema = new mongoose.Schema({
+    cliente: {
         type: String,
         required: true,
     },
-    CPF: {
-        type: Number,
-        require: true,
+    cpfFake: {
+        type: String,
+        required: true,
     },
 
-    RG: {
-        type: Number,
-        require: true,
+    rgFake: {
+        type: String,
+        required: true,
     },
-    dataNascimento: {
+    nascimento: {
         type: Date,
-        require: true,
+        required: true,
     },
     endereco: {
         type: String,
-        require: true,
+        required: true,
     },
     numero: {
         type: Number,
-        require: true,
+        required: true,
     },
-    Bairro: {
+    bairro: {
         type: String,
-        require: true,
+        required: true,
     },
     cidade: {
         type: String,
-        require: true,
+        required: true,
     },
+    
+    UF: {
+        type: String,
+        required: true,
+    },
+
     fone: {
         type: String,
-        require: true,
+        required: true, 
     },
     email: {
         type: String,
-        require: true,
+        required: true,
     },
     ocupacao: {
         type: String,
-        require: true,
+        required: true,
     },
 
 }
@@ -108,4 +114,4 @@ const cadastrarCliente = new mongoose.Schema({
 // Exporte cada modelo separadamente
 module.exports.Produto = mongoose.model('Produto', produtoSchema, 'Produtos');
 module.exports.DetalhesVenda = mongoose.model('DetalhesVenda', detalhesVendaSchema, 'Detalhes de Venda');
-module.exports.cadastrarCliente = mongoose.model('CadastroCliente', cadastrarCliente, 'Cadastro de Cliente');
+module.exports.cadastrarCliente = mongoose.model('Cliente', cadastrarClienteSchema, 'Cadastro de Cliente');

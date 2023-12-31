@@ -61,12 +61,12 @@ const cadastrarClienteSchema = new mongoose.Schema({
     },
     cpfFake: {
         type: String,
-        // required: true,
+        required: true,
     },
 
     rgFake: {
         type: String,
-        // required: true,
+        required: true,
     },
     nascimento: {
         type: Date,

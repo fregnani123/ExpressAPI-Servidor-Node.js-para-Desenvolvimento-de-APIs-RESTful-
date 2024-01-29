@@ -25,7 +25,6 @@ const controllers = {
         }
     },
 
-
     createDetalheVenda : async (req, res) => {
         const newVenda = req.body; 
         try {
@@ -48,7 +47,6 @@ const controllers = {
             return res.status(500).json({ error: 'Erro ao buscar  a venda' });
         }
     },
-
 
     createProduto: async (req, res) => {
           const newProduto = req.body;

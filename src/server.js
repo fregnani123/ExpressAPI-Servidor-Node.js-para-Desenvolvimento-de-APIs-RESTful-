@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(cors());
 app.use(Routes);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT ;
 const PASSWORD = process.env.PASSWORD
 
 

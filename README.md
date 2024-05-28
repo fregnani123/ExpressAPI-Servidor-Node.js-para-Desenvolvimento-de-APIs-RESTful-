@@ -1,4 +1,4 @@
-#Descrição do Sistema:
+*Descrição do Sistema:
 
 Este sistema consiste em um servidor Express.js que foi configurado e está em execução em uma máquina virtual da Oracle. Este servidor fornece uma API para manipular recursos armazenados em um banco de dados MongoDB. A API implementa quatro operações principais:
 

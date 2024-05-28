@@ -1,4 +1,4 @@
-*Descrição do Sistema:
+Descrição do Sistema:
 
 Este sistema consiste em um servidor Express.js que foi configurado e está em execução em uma máquina virtual da Oracle. Este servidor fornece uma API para manipular recursos armazenados em um banco de dados MongoDB. A API implementa quatro operações principais:
 
@@ -13,3 +13,4 @@ DELETE (DELETE): Esta operação é utilizada para excluir recursos existentes. 
 O servidor Express.js é responsável por receber as solicitações HTTP, rotear essas solicitações para os manipuladores apropriados e interagir com o banco de dados MongoDB para realizar as operações necessárias.
 
 Essa configuração permite que os clientes interajam com os recursos armazenados no banco de dados MongoDB por meio de uma interface RESTful fornecida pela API Express.js.
+![Screenshot_1](https://github.com/fregnani123/converterMoedas/assets/99106631/d5e84a2c-dc1b-42d6-8f37-21a67136150d)
